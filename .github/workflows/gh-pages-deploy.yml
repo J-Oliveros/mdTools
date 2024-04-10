@@ -25,8 +25,13 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Merge from master
-      run: git checkout gh-pages && git merge master
+    - name: Merge master -> gh-pages
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: master
+          target_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
