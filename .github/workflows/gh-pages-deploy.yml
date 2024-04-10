@@ -17,13 +17,17 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '14'  # Adjust as per your project's requirement
+        node-version: '18'
     
     - name: Install Dependencies
       run: npm install
 
     - name: Build
       run: npm run build
+
+    - name: Merge from master
+      run: git checkout gh-pages
+      run: git merge master
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
