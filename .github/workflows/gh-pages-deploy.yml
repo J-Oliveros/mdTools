@@ -26,8 +26,7 @@ jobs:
       run: npm run build
 
     - name: Merge from master
-      run: git checkout gh-pages
-      run: git merge master
+      run: git checkout gh-pages && git merge master
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
